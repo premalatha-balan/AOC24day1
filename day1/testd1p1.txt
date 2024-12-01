@@ -6,4 +6,5 @@
 3   9
 3   3
 
-answer  = 11
+part 1 answer  = 11
+part 2 answer = 31

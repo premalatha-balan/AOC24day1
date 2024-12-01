@@ -17,5 +17,3 @@ for i in idlst1:
     #print(f"score: {score}")
     #y = input("enter a key :")
 print(score)
-
-#moved to day1 folder
