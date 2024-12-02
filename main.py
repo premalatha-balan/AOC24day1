@@ -1,21 +1,49 @@
-f = open("day1_input.txt", "r")
 
-idlst1, idlst2 = [], []
-lines_lst_str = f.readlines()
-for line in lines_lst_str:
-  line_lst = line.split()
-  idlst1.append(int(line_lst[0]))
-  idlst2.append(int(line_lst[1]))
+diff = lambda a, b: abs(a-b)
 
-ct = lambda same: idlst2.count(same)
+def pos(a0, a1):
+  if a0 > a1:
+    return True
+  else: return False
 
-score=0
-for i in idlst1:
-  if i in idlst2: 
-    score += ct(i)*i
-    #print(f"i: {i} and count: {count}")
-    #print(f"score: {score}")
-    #y = input("enter a key :")
-print(score)
 
-#moved to day1 folder
+def unsafeOrder(a):
+  if pos(a[0] ,a[1]): # decreasing series
+    for i in range(1,len(a)-1):
+      if pos(a[i], a[i+1]):
+        if diff(a[i], a[i+1])<=3 and diff(a[0], a[i])>=1:
+          return True
+        else: return False
+      else: return False 
+  else: #increasing series
+    for i in range(1, len(a)-1):
+      if pos(a[i], a[i+1]): #decreasing 
+        return False
+      else: 
+        if diff(a[i], a[i+1]<=3) and diff(a[0], a[i])>=1:
+          return True
+        else: return False
+
+
+f = open("day2_input.txt", "r")
+
+line_lst_str = f.readlines()
+
+print(len(line_lst_str))
+
+reports=[]
+
+for line in line_lst_str:
+  line_lst = [int(i) for i in line.split()]
+
+  #print(line_lst)
+  #print(unsafeOrder(line_lst))
+  #y = input("enter a key:")
+  if unsafeOrder(line_lst):
+    reports.append(line_lst)
+  
+
+#reports = [[int(i) for i in line.split()] for line in line_lst_str if unsafeOrder([int(i) for i in line.split()])]
+
+print(len(reports))
+#print(reports)
