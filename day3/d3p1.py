@@ -6,6 +6,7 @@ memory = [line.strip() for line in f]
 
 tot = 0
 for i in range(len(memory)):
+  print(memory[i] if i<10 else 'stop program')
   mulmatch=re.findall(r'(mul\((\d+\d*\d*),(\d+\d*\d*\)))',memory[i])
 
   mults = [int(j[1])*int(j[2].strip(")")) for j in mulmatch]
