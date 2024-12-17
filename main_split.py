@@ -11,8 +11,6 @@ dontsplit = re.split(r'(don\'t\(\))', memory[0])
 #print(dontsplit[1])
 #print(dontsplit[2])
 #print(dontsplit[3])
-#print(len(spacesplit))
-#print(len(memory))
 mulmatch=re.findall(r'(mul\((\d+\d*\d*),(\d+\d*\d*\)))',dontsplit[0])
 #print(mulmatch)
 mults = [int(j[1])*int(j[2].strip(")")) for j in mulmatch]
