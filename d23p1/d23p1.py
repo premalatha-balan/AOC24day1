@@ -27,7 +27,7 @@ count = 0
 #                 #print(f"count = {count} for {i} and {j}")
 #                 #y = input("enter a key")
 
-print(f"count = {count}")
+
 
 # def triangle(t_list, big_list):
 #     for i in big_list:
@@ -37,8 +37,16 @@ print(f"count = {count}")
 for i in nets:
     if (i[0][0] or i[1][0]) == "t":
         for j in nets:
-            if i!=j:
-                
+            if i!=j and (j[0] or j[1] in i):
+                if i[0][0]=="t": apex1=i[1][0]
+                elif i[1][0]=="t": apex1=i[0][0]
+                else: apex1 =""
+                if j[0][0]=="t": apex2=j[1][0]
+                elif j[1][0]=="t": apex2=j[0][0]
+                else: apex2=""
+                if ([apex1, apex2] in nets) or ([apex2, apex1] in nets): count+=1
+
+print(f"count = {count}")
 
 
 
