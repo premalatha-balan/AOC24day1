@@ -39,20 +39,28 @@ while True:
                 # y=input("enter a key")
                 match conx[1]:
                     case "AND":
-                        # print(starts_dict[conx[0]])
-                        # print(starts_dict[conx[2]])
+                        print(conx[0], starts_dict[conx[0]])
+                        print(conx[2], starts_dict[conx[2]])
                         # y=input("enter a key")
                         output = starts_dict[conx[0]]*starts_dict[conx[2]]
-                        # print(output)
-                        # y=input("enter a key")
+                        print(f"{conx[4]} is {output} for {conx[1]}")
+                        y=input("enter a key")
                         starts_dict[conx[4]] = output
                     case "OR":
+                        print(conx[0], starts_dict[conx[0]])
+                        print(conx[2], starts_dict[conx[2]])
                         if starts_dict[conx[0]]+starts_dict[conx[2]] !=0: output = 1
                         else: output = 0
+                        print(f"{conx[4]} is {output} for {conx[1]}")
+                        y=input("enter a key")
                         starts_dict[conx[4]] = output
                     case "XOR":
+                        print(conx[0], starts_dict[conx[0]])
+                        print(conx[2], starts_dict[conx[2]])
                         if starts_dict[conx[0]]!=starts_dict[conx[2]]: output = 1 
                         else: output = 0
+                        print(f"{conx[4]} is {output} for {conx[1]}")
+                        y=input("enter a key")
                         starts_dict[conx[4]] = output
                 # print(f"key is {conx[4]} and value is {output}")
                 # print(f"key is {conx[4]} and value is {starts_dict[conx[4]]}")
@@ -86,4 +94,4 @@ print(zbin)
 print(int(zbin,2))
 
 #first attempt answer is 2166808167225 is too low
-#reversing gives        21545258828784 is too low
+#reversing gives        21545258828784 is too low 100111001100001100101011111111100001111110000
