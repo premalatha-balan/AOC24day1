@@ -1,21 +1,21 @@
 import fnmatch
 
-def tri_match(a, b, in_lst):
-    if a[0]==b[0]:
-        apex1=a[1]
-        apex2=b[1]
-    elif a[1]==b[1]:
-        apex1=a[0]
-        apex2=b[0]
-    elif a[0]==b[1]:
-        apex1 = a[1]
-        apex2 = b[0]
-    elif a[1]==b[0]:
-        apex1=a[0]
-        apex2=b[1]
-    elif a[0]==b[1]:
-        apex1=a[1]
-        apex2=b[0]
+# def tri_match(a, b, in_lst):
+#     if a[0]==b[0]:
+#         apex1=a[1]
+#         apex2=b[1]
+#     elif a[1]==b[1]:
+#         apex1=a[0]
+#         apex2=b[0]
+#     elif a[0]==b[1]:
+#         apex1 = a[1]
+#         apex2 = b[0]
+#     elif a[1]==b[0]:
+#         apex1=a[0]
+#         apex2=b[1]
+#     elif a[0]==b[1]:
+#         apex1=a[1]
+#         apex2=b[0]
     
 
     # for k in in_lst:
