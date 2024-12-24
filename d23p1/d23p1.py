@@ -156,26 +156,49 @@ apex1, apex2 = "", ""
 
 
 double = [(i,j) for i in nets for j in nets if ((i!=j) and any(x in i for x in j) and ((i[0][0]=="t") or (i[1][0]=="t"))) ]
-triangle = set()
+print(len(double))
+# triangle = set()
+# triangle.add((1,2,3))
+# triangle.add((3,2,1))
+# test_triangle = list(dict.fromkeys({1,2,3}, {3,2,1}))
+# print(f"triangle is {triangle}")
+# print(f"test_triangle is {test_triangle}")
+# y=input("enter a key")
+triangle = []
 for i in double:
     common = list(set(i[0])&set(i[1]))
-    print(f"common ={common[0]}")
-    threes = tuple(set (i[0]+i[1])) # do we need it as tuple?
+    #print(f"common ={common[0]}")
+    threes = set (i[0]+i[1])
     twos =[x for x in threes if x != common[0]]
-    print(f"twos is {twos} and threes {threes}")
-    y=input("enter a key")
-    if [twos[0], twos[1]]in nets or [twos[1], twos[0] in nets]:
-        print(f"twos is {twos}")
-        y=input("enter a key")
+    # print(f"triangle is {triangle}")
+    # print(f"threes is {threes}")
+    # y=input("enter a key")
+    if threes not in triangle:
+        # print(f"triangle is {triangle}")
+        # print(f"threes is {threes} and twos is {twos}")
+        # y=input("enter a key")
+        if ((twos[0], twos[1] in nets) or (twos[1], twos[0] in nets)): triangle.append(threes)
+        #if (twos[0], twos[1])in nets: triangle.append
+            # print(f"in nets twos is {twos[0]}-{twos[1]} and threes is {threes}")
+            # print(f"i is {i} and common is {common[0]}")
+            # y=input("enter a key")
+        #if (twos[1], twos[0] in nets):triangle.append
+            # print(f"in nets twos is {twos[1]}-{twos[0]} and threes is {threes}")
+            # print(f"i is {i} common is {common[0]}")     
+            # y=input("enter a key")   
+    #if (twos[0], twos[1])in nets or (twos[1], twos[0] in nets) and (threes not in triangle) : triangle.append(threes)
 
-                
-#second attempt answer is 4376
-
-                
+        
 
 
+#second attempt answer is 4376 - too high
+#third attempt answer is 5256 - too high
+#fourth attempt answer is 1738 - too high
+print(triangle)
+#print(len(triangle))
 
-print(f"count = {count}")
+
+#print(f"count = {count}")
 
 
 
