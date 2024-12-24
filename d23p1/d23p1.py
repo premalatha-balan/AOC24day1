@@ -134,27 +134,39 @@ apex1, apex2 = "", ""
 # print(f"count = {count}")
 
 
-double = [(i, j) for i in nets for j in nets if ((i!=j) and ((i[0][0]=="t") or (i[1][0]=="t")) and ((j[0] in i) or j[1] in i) )]
+# double = [(i, j) for i in nets for j in nets if ((i!=j) and ((i[0][0]=="t") or (i[1][0]=="t")) and ((j[0] in i) or j[1] in i) )]
 
 
-for k in double:
-    apex1, apex2 = tri_match(k[0], k[1], nets)
-    if ([apex1, apex2] in nets or [apex2, apex1] in nets):
-        count+=1
-        print(f"double is {k} and match is {apex1, apex2}")
-        print(f"count is {count}")
+# for k in double:
+#     apex1, apex2 = tri_match(k[0], k[1], nets)
+#     if ([apex1, apex2] in nets or [apex2, apex1] in nets):
+#         count+=1
+#         print(f"double is {k} and match is {apex1, apex2}")
+#         print(f"count is {count}")
         
-        apex3 = list(set(k[0])&set(k[1]))
-        print(f"apex3 is {apex3}")
+#         apex3 = list(set(k[0])&set(k[1]))
+#         print(f"apex3 is {apex3}")
         
-        tri = set([apex1, apex2, apex3[0]])
-        tri_l  = [apex1, apex2, apex3[0]]
-        print(f"tri is {tri}")
+#         tri = set([apex1, apex2, apex3[0]])
+#         tri_l  = [apex1, apex2, apex3[0]]
+#         print(f"tri is {tri}")
+#         y=input("enter a key")
+
+
+
+
+double = [(i,j) for i in nets for j in nets if ((i!=j) and any(x in i for x in j) and ((i[0][0]=="t") or (i[1][0]=="t"))) ]
+triangle = set()
+for i in double:
+    common = list(set(i[0])&set(i[1]))
+    print(f"common ={common[0]}")
+    threes = tuple(set (i[0]+i[1])) # do we need it as tuple?
+    twos =[x for x in threes if x != common[0]]
+    print(f"twos is {twos} and threes {threes}")
+    y=input("enter a key")
+    if [twos[0], twos[1]]in nets or [twos[1], twos[0] in nets]:
+        print(f"twos is {twos}")
         y=input("enter a key")
-
-
-
-
 
                 
 #second attempt answer is 4376
