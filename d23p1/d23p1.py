@@ -18,10 +18,10 @@ import fnmatch
 #         apex2=b[0]
     
 
-    # for k in in_lst:
-    #     if ([apex1, apex2] in k) or ([apex2, apex1] in k): return k
+    # # for k in in_lst:
+    # #     if ([apex1, apex2] in k) or ([apex2, apex1] in k): return k
 
-    return apex1, apex2
+    # return apex1, apex2
 
 f = open("/workspaces/Advent-of-Code-2024/d23p1/day23_input.txt", "r")
 
