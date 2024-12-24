@@ -14,7 +14,7 @@ starts_dict = {s[0].strip(":"):int(s[1]) for s in starts}
 #print(starts[89])
 #print(len(starts))
 connects = connects[91:]
-print(connects[0])
+#print(connects[0])
 
 
 # for conx in connects:
@@ -69,9 +69,21 @@ while True:
 
     if len(noConx)<2: break
 
-print(len(starts_dict))
-print(len(noConx))
+# print(len(starts_dict))
+# print(len(noConx))
 
+zs={s:starts_dict[s] for s in starts_dict if s[0]=="z"}
+# print(zs)
+# print(len(zs))    
+zs_keys = list(zs.keys())
+zs_keys.sort(reverse=True)
+print(zs_keys)
 
-    
+zbin_lst = [str(zs[sk]) for sk in zs_keys]
+#print(zbin_lst)
+zbin = "".join(zbin_lst)
+print(zbin)
+print(int(zbin,2))
 
+#first attempt answer is 2166808167225 is too low
+#reversing gives        21545258828784 is too low
